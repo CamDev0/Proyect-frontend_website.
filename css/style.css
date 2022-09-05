@@ -35,8 +35,8 @@ body{
 }
 
 
-/*
-Scroll snap
+
+/*Scroll snap*/
 
 .servicios,          
 .nav-principal,
@@ -44,7 +44,7 @@ Scroll snap
     scroll-snap-align: center;
     scroll-snap-stop: always;
 }
-    */
+    
 
 .contenedor {
     max-width: 120rem;
