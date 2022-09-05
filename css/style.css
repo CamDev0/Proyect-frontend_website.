@@ -35,14 +35,16 @@ body{
 }
 
 
-/*Scroll snap*/
+/*
+Scroll snap
 
-.servicios,          /*Se le indican las secciones en la que el scroll termina.*/
+.servicios,          
 .nav-principal,
 .formulario {
     scroll-snap-align: center;
     scroll-snap-stop: always;
 }
+    */
 
 .contenedor {
     max-width: 120rem;
