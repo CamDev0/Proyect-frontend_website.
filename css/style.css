@@ -1,0 +1,307 @@
+
+:root {
+    /*Almacena cualquier valor que se vaya a usar mas de una vez*/
+    /*La ventaja de las variables de css es que se pueden
+    utilizar para todas las clases e Ids y si se necesita hacer un cambio
+    de colores. solo se cambia el color de la variable y listo.*/
+
+    --azulbajo: #b5c5d7;
+    --piel:#ecdfdb;
+    --azul:#c6e1f1;
+    --negro: #131326;
+    --rosa: #f409ec;
+    --morado: #e4bcd4;
+    --rojo:  #c0034c;  
+    --blanco: #f5f5f5;
+}
+
+/*Globales*/
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory; /*Para que pase a cada navegacion de la pagina con us scroll hacia abajo (x scroll horizontal, y vertical)*/
+}
+
+/**Para simplificar el modelo caja de css. para que el padding los border, etc, no afecten el tamaño de la caja.**/
+*, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+body{
+    font-size: 16px;    /*1 ren = 10px*/
+    font-family: 'Raleway', sans-serif;
+    background-image: linear-gradient(to top, var(--morado) 0%, var(--azul) 100%);
+}
+
+
+/*Scroll snap*/
+
+.servicios,          /*Se le indican las secciones en la que el scroll termina.*/
+.nav-principal,
+.formulario {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+.contenedor {
+    max-width: 120rem;
+
+/** margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+    RESUMIDO: **/
+
+    /**margin: 0 auto 0 auto; RESUMIDO:**/
+    margin: 0 auto;
+}
+
+.boton {
+    background-color: var(--azulbajo);
+    color: #23282b;
+    padding: 1rem 3rem;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: .8rem;
+    width: 70%;
+    text-align: center;
+    border: none;
+}
+
+.boton:hover {
+    cursor: pointer;
+}
+
+.sombra {
+    box-shadow: 0px 0px 25px 13px rgba(0,0,0,0.19);
+    background-color: var(--piel);
+    padding: 2rem;
+    border-radius: 1.5rem;
+}
+
+
+/*Tipografía*/
+
+h1{
+    font-size: 3.8rem
+}
+
+h2{
+    font-size: 2.8rem
+}
+
+h3{
+    font-size: 1.8rem
+}
+
+h1,h2,h3 {
+    text-align: center;
+}
+
+
+/*Titulos*/
+
+.Titulo span{
+    font-size: 2rem;
+}
+
+.subtitulo{
+    color: var(--negro);
+    text-align: center;
+}
+
+
+/*Navegación Principal.*/
+
+.nav-principal {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) { 
+    /**A partir de 768px se va a realizar este cambio en la clase nav-principal.**/
+    .nav-principal {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+/**así accedemos a las etiquetas de una clase.**/
+.nav-principal a {
+    display: block;
+    text-align: center;
+    color: var(--rojo);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700; /**se puede poner bold, que es igual 700.**/
+    padding: 1.5rem;
+}
+
+.nav-principal a:hover{
+    /**El hover me permite cambiar el color encima del enlace.**/
+    background-color: var(--azul) 
+}
+
+
+
+/*Utilidades*/
+
+.w-sm-100{
+    width: 100%; /*Toma todo el ancho del espacio disponible.*/
+}
+@media (min-width: 768px) { 
+    .w-sm-100 {
+        width: auto;
+    }
+}
+.nav-bg {
+    background-color: var(--morado);
+}
+.flex{
+    display: flex; /*Para poder modificar de manera horizontal el boton de enviar*/
+}
+.alinear-derecha {
+    justify-content: flex-end; /*Para alinear el boton de enviar a la derecha.*/
+}
+
+/*Hero*/
+
+.hero {
+    background-image: url(../img/hero.jpg);
+    /**Para que la imagen no se repita si se disminuye el zoom**/
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 30rem;
+    padding: 2rem;
+    /**Se pone posición relativa a la clase padre para así poder poner posicion absioluta en la clase hija.**/
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.contenido-hero {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .6); /* Sintaxis Anterior*/
+    background-color: rgb(0 0 0 / 60%); /*Nueva, igual se deja la de antes por si el navegador no tiene soporte.*/
+
+    /*Alinear vertical y horizontalmente.*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido-hero h2,
+.contenido-hero p{
+    color: var(--blanco);
+}
+
+
+/*Servicios*/
+
+
+@media (min-width: 768px) { 
+    .servicios {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;  /*3 columnas, 1fr funciona para dividir el 100% del espacio entre las columnas*/
+        column-gap: 1rem; /*El padding a la derecha de cada columna*/
+    }    
+}
+
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio h3 {
+    color: var(--rojo);
+    font-weight: bold;
+}
+
+.servicio p {
+    line-height: 2;
+}
+
+.servicio .iconos{
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--rojo);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; 
+}
+
+
+/*Formulario*/
+
+.formulario {
+    background-color: var(--azul);
+    width: min(100rem, 100%); /*Toma el valor mas pequeño entre esos dos valores*/
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    text-align: center;
+    font-size: 2rem; /*Para aumentar el tamaño de la fuente o letra.*/
+    color: var(--rojo);
+    font-weight: 700;
+    margin-bottom: 2rem;
+
+}
+
+@media (min-width: 768px) { 
+    .contenedor-campos {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1.5rem;
+    }
+}
+
+.campos:nth-child(3), 
+.campos:nth-child(4){     /*Toma la etiqueta 3 y 4 de la clase campos, en este caso es 'correo'*/
+    grid-column: 1 / 3;   /*Para alargar la fila (correo) de la 1 a la 3*/
+}
+
+.campos {
+    margin-bottom: 2rem;
+    color: var(--blanco);
+}
+
+.campos textarea {
+    height: 15rem;
+}
+
+
+.campos label {
+    color: var(--negro);
+    font-weight: bold;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.form {
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+/*Footer*/
+
+.footer {
+    text-align: center;
+}
