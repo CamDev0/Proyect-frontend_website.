@@ -74,6 +74,7 @@ body{
 
 .boton:hover {
     cursor: pointer;
+    opacity: .7;
 }
 
 .sombra {
@@ -122,6 +123,7 @@ h1,h2,h3 {
     flex-direction: column;
 }
 
+
 @media (min-width: 768px) { 
     /**A partir de 768px se va a realizar este cambio en la clase nav-principal.**/
     .nav-principal {
@@ -139,11 +141,11 @@ h1,h2,h3 {
     font-size: 2rem;
     font-weight: 700; /**se puede poner bold, que es igual 700.**/
     padding: 1.5rem;
+    animation: transform 0.5s ease-in;
 }
 
 .nav-principal a:hover{
-    /**El hover me permite cambiar el color encima del enlace.**/
-    background-color: var(--azul) 
+    transform: scale(1.2);
 }
 
 
@@ -306,4 +308,15 @@ h1,h2,h3 {
 
 .footer {
     text-align: center;
+}
+
+.footer-name a {
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--negro);
+}
+
+.footer-name a:hover {
+    color: var(--rojo);
+    text-decoration: line-through;
 }
